@@ -1,12 +1,12 @@
 package adminMenu;
 
-import userService.UserService;
+import userService.UserServiceImpl;
 
 import java.util.Scanner;
 
 public class AdminMenu {
     static {
-        UserService userService = new UserService();
+        UserServiceImpl userService = new UserServiceImpl();
         userService.addUser("User1", 10, "kinder");
         userService.addUser("User2", 20, "Student");
     }
@@ -36,7 +36,7 @@ public class AdminMenu {
                 age = Integer.parseInt(console.nextLine());
                 name = console.nextLine();
                 username = console.nextLine();
-                UserService.addUser(name, age, username);
+                UserServiceImpl.addUser(name, age, username);
                 printCommand();
             }
             if (command.equals("2")) {
@@ -45,11 +45,11 @@ public class AdminMenu {
             }
             if (command.equals("3")) {
                 userId = Integer.parseInt(console.nextLine());
-                UserService.deleteUser(userId);
+                UserServiceImpl.deleteUser(userId);
                 printCommand();
             }
             if (command.equals("4")) {
-                UserService.printUser();
+                UserServiceImpl.printUser();
                 printCommand();
             }
         }
